@@ -1,0 +1,28 @@
+{
+  "name": "cakegallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiten1312/cakeGalleryNode.git"
+  },
+  "author": "Jiten Dhimmar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiten1312/cakeGalleryNode/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-router": "0.0.1",
+    "mongoose": "^5.11.12",
+    "path": "^0.12.7"
+  },
+  "homepage": "https://github.com/Jiten1312/cakeGalleryNode#readme"
+}
