@@ -5,7 +5,7 @@ const requireAuth = (req,res,next) =>{
     const token = req.cookies.jwt;
 
     if (token) {
-        jwt.verify(token, '')
+        jwt.verify(token, '')/*frontend code needed here*/
         if(err){
             console.log(err.message);
             res.redirect('/category')
