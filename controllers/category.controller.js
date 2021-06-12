@@ -84,6 +84,7 @@ class CategoryController {
             });
         }
     }
+    
 
     static async delete(req, res) {
         const categoryId = req.params.categoryId;
@@ -100,5 +101,13 @@ class CategoryController {
             });
         }
     }
+    
 }
+const createToken = (categoryId) => {
+    return jwt.sign({ categoryId },'the secret key',{
+        expiresIn:100
+    });
+}
+
+
 module.exports = CategoryController;
