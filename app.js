@@ -19,7 +19,6 @@ app.get('/category', requireAuth, (req,res)=> res.render('category'));
 
 //Import Datbase URL
 var db = require("./config/conn").url;
-const { requireAuth } = require("./middleware/authMiddleware");
 
 //MongoDB Datbase Connection
 mongoose
