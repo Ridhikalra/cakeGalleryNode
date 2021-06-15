@@ -4,7 +4,7 @@ const bodyParser = require("body-parser"); //For parsing the data which we will 
 const cors = require("cors"); //cross origin support
 const path = require("path");
 const app = express();
-const requireAuth = require('./middleware/authMiddleware');
+const dotenv = require('dotenv');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
@@ -13,9 +13,10 @@ app.use(cors());
 const port = process.env.PORT || 5000;
 app.set("port", port);
 
+dotenv.config();
+
 const routes = require("./routes/api/index");
 app.use("/api", routes);
-app.get('/category', requireAuth, (req,res)=> res.render('category'));
 
 //Import Datbase URL
 var db = require("./config/conn").url;
