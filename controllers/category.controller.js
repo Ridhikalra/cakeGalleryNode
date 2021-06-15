@@ -103,11 +103,6 @@ class CategoryController {
     }
     
 }
-const createToken = (categoryId) => {
-    return jwt.sign({ categoryId },'the secret key',{
-        expiresIn:100
-    });
-}
 
 
 module.exports = CategoryController;
