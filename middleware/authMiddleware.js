@@ -1,21 +1,23 @@
-const jwt = require ('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+const signUp = require('../models/signupmodel');
 
-const requireAuth = (req,res,next) =>{
-  const token =req.cookies.jwt;
-  if (token){
-    jwt.verify(token,'the secret key',(err, decodedToken)=>{
-      if(err){
-        console.log(err.message);
-        res.redirect('/category')
-      }
-      else{
-        console.log(decodedToken);
-        next();
-      }
-    })
+module.exports = (req, res, next) => {
+  console.log(req.headers);
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(401).json({ error: 'YOU MUST LOG IN' });
   }
-  else{
-    res.redirect('/category');
-  }
-}
-module.exports ={requireAuth}
+  const token = authorization.replace('Bearer ', '');
+  console.log(token);
+  jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    if (err) {
+      return res.status(401).json({ error: 'YOU MUST LOG IN' });
+    }
+    const { _id } = payload;
+    signUp.findById(_id).then((userdata) => {
+      req.user = userdata;
+      next();
+    });
+  });
+};
