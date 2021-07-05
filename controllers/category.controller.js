@@ -6,6 +6,7 @@ class CategoryController {
         try {
             const collection = new Collection();
             collection.title = req.body.title;
+            collection.imgUrl = req.body.imgUrl;
 
             let savedDoc = await collection.save();
 

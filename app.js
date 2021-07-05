@@ -10,8 +10,6 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 
-const userRoute = require('./routes/User')
-
 const port = process.env.PORT || 5000;
 app.set("port", port);
 
@@ -40,5 +38,3 @@ app.use('/status', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
-
-app.use('/api/User',userRoute)

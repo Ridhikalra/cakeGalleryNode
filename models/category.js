@@ -6,6 +6,9 @@ const CategorySchema = new Schema({
     title: {
         type: String,
     },
+    imgUrl:{
+        type:String,
+    }
 }, {
     versionKey: false,
     timestamps: true,
